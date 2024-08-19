@@ -25,7 +25,14 @@ public class main {
 
                 int id = articleLastId + 1;
                 articleLastId = id;
+                
+                Article article = new Article();
+                article.id = id;
+                article.title = title;
+                article.content = content;
+                
                 System.out.printf("%d번 게시물이 등록되었습니다.\n", id);
+                System.out.println("생성된 게시물 객체: " + article);
             }
 
             else if(cmd.equals("exit")){
@@ -41,3 +48,43 @@ public class main {
         sc.close();
     }
 }
+
+
+class Article {
+    int id;
+    String title;
+    String content;
+
+    public Article() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("글 번호 : %d, 글 제목: %s, 글 내용: %s", id, title, content);
+    }
+    }
+
